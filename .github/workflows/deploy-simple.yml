@@ -1,0 +1,104 @@
+name: Auto Deploy to Server
+
+# 自动部署配置 - 针对你的服务器环境优化
+# 服务器: 1.95.137.107
+# 部署路径: /var/www/business-dashboard/
+# 访问地址: http://1.95.137.107/dashboard/
+
+on:
+  push:
+    branches:
+      - master
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 检出代码
+        uses: actions/checkout@v3
+      
+      - name: 🔧 设置 Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+      
+      - name: 📦 安装依赖
+        run: npm ci
+      
+      - name: 🧪 运行测试
+        run: npm test
+        continue-on-error: true
+      
+      - name: 🏗️ 构建项目
+        run: npm run build
+      
+      - name: 📊 显示构建信息
+        run: |
+          echo "✅ 构建完成"
+          echo "📦 构建大小: $(du -sh dist | cut -f1)"
+          echo "📁 文件数量: $(find dist -type f | wc -l)"
+      
+      - name: 🚀 部署到服务器
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          port: ${{ secrets.SERVER_PORT || 22 }}
+          source: "dist/*"
+          target: "/tmp/business-dashboard-new/"
+          strip_components: 1
+          rm: true
+      
+      - name: 🔄 更新服务器文件
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          port: ${{ secrets.SERVER_PORT || 22 }}
+          script: |
+            echo "开始部署..."
+            
+            # 备份当前版本
+            if [ -d "/var/www/business-dashboard" ]; then
+              BACKUP_DIR="/var/www/business-dashboard-backup-$(date +%Y%m%d_%H%M%S)"
+              echo "备份当前版本到: $BACKUP_DIR"
+              cp -r /var/www/business-dashboard $BACKUP_DIR
+              
+              # 只保留最近3个备份
+              ls -dt /var/www/business-dashboard-backup-* | tail -n +4 | xargs rm -rf
+            fi
+            
+            # 清空目标目录
+            rm -rf /var/www/business-dashboard/*
+            
+            # 移动新文件
+            mv /tmp/business-dashboard-new/* /var/www/business-dashboard/
+            rm -rf /tmp/business-dashboard-new
+            
+            # 设置权限
+            chown -R www-data:www-data /var/www/business-dashboard
+            chmod -R 755 /var/www/business-dashboard
+            
+            # 重新加载 Nginx
+            nginx -t && systemctl reload nginx
+            
+            echo "✅ 部署完成！"
+            echo "🌐 访问地址: http://1.95.137.107/dashboard/"
+      
+      - name: ✅ 部署成功通知
+        if: success()
+        run: |
+          echo "🎉 部署成功！"
+          echo "📅 部署时间: $(date)"
+          echo "🌐 访问地址: http://1.95.137.107/dashboard/"
+      
+      - name: ❌ 部署失败通知
+        if: failure()
+        run: |
+          echo "❌ 部署失败，请检查日志"

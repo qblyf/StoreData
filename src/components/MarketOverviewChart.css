@@ -1,0 +1,288 @@
+.market-overview-chart {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.market-chart-section {
+  background: white;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.market-chart-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 20px 0;
+}
+
+/* 销量对比图表 */
+.market-sales-comparison {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sales-bar-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sales-bar-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sales-bar-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sales-icon {
+  font-size: 20px;
+}
+
+.sales-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.sales-bar-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 48px;
+}
+
+.sales-bar {
+  height: 100%;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  min-width: 100px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.store-sales-bar {
+  background: linear-gradient(90deg, #1890ff 0%, #40a9ff 100%);
+  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.3);
+}
+
+.others-sales-bar {
+  background: linear-gradient(90deg, #d9d9d9 0%, #bfbfbf 100%);
+}
+
+.sales-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  white-space: nowrap;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.sales-percent {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1890ff;
+  min-width: 50px;
+}
+
+.market-total-info {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e6f7ff 100%);
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #91d5ff;
+}
+
+.total-label {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.total-value {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.total-number {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1890ff;
+}
+
+.total-unit {
+  font-size: 16px;
+  color: #666;
+}
+
+.total-detail {
+  font-size: 13px;
+  color: #666;
+}
+
+/* 市场占有率图表 */
+.market-share-chart {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.pie-chart-container {
+  flex-shrink: 0;
+  width: 200px;
+  height: 200px;
+}
+
+.pie-chart {
+  width: 100%;
+  height: 100%;
+}
+
+.pie-chart-segment {
+  transition: stroke-dasharray 0.5s ease;
+}
+
+.pie-chart-value {
+  font-size: 36px;
+  font-weight: 700;
+  fill: #1890ff;
+}
+
+.pie-chart-label {
+  font-size: 14px;
+  fill: #666;
+}
+
+.market-ranking-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ranking-badge {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: linear-gradient(135deg, #fff7e6 0%, #fffbe6 100%);
+  border-radius: 8px;
+  border: 1px solid #ffd591;
+}
+
+.ranking-icon {
+  font-size: 32px;
+}
+
+.ranking-content {
+  flex: 1;
+}
+
+.ranking-label {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.ranking-value {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.ranking-number {
+  font-size: 28px;
+  font-weight: 700;
+  color: #fa8c16;
+}
+
+.ranking-total {
+  font-size: 16px;
+  color: #999;
+}
+
+.ranking-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.progress-label {
+  font-size: 13px;
+  color: #666;
+}
+
+.progress-bar-container {
+  height: 24px;
+  background: #f5f5f5;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #52c41a 0%, #73d13d 100%);
+  border-radius: 12px;
+  transition: width 0.5s ease;
+  box-shadow: 0 2px 4px rgba(82, 196, 26, 0.3);
+}
+
+.progress-text {
+  font-size: 12px;
+  color: #52c41a;
+  font-weight: 600;
+  text-align: right;
+}
+
+/* 响应式设计 */
+@media (max-width: 1200px) {
+  .market-overview-chart {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .market-chart-section {
+    padding: 16px;
+  }
+
+  .market-share-chart {
+    flex-direction: column;
+  }
+
+  .pie-chart-container {
+    width: 180px;
+    height: 180px;
+  }
+
+  .sales-bar-container {
+    height: 40px;
+  }
+
+  .sales-value {
+    font-size: 12px;
+  }
+
+  .total-number {
+    font-size: 24px;
+  }
+
+  .ranking-number {
+    font-size: 24px;
+  }
+}

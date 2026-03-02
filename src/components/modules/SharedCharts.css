@@ -1,0 +1,133 @@
+/**
+ * Shared Chart Styles for Business Modules
+ * 业务模块共享图表样式
+ */
+
+/* Simple Bar Chart */
+.simple-bar-chart {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.bar-chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.bar-chart-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.bar-chart-unit {
+  font-size: 13px;
+  color: #6c757d;
+  font-weight: 500;
+}
+
+.bar-chart-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.bar-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.bar-label {
+  min-width: 120px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #495057;
+  flex-shrink: 0;
+}
+
+.bar-container {
+  flex: 1;
+  position: relative;
+}
+
+.bar-fill {
+  height: 42px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 16px;
+  transition: all 0.4s ease;
+  min-width: 80px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.bar-fill:hover {
+  transform: scaleX(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.bar-value {
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Color Variants */
+.bar-fill.primary {
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+}
+
+.bar-fill.success {
+  background: linear-gradient(90deg, #52c41a 0%, #73d13d 100%);
+}
+
+.bar-fill.info {
+  background: linear-gradient(90deg, #1890ff 0%, #40a9ff 100%);
+}
+
+.bar-fill.warning {
+  background: linear-gradient(90deg, #fa8c16 0%, #ffa940 100%);
+}
+
+.bar-fill.danger {
+  background: linear-gradient(90deg, #f5222d 0%, #ff4d4f 100%);
+}
+
+.bar-fill.purple {
+  background: linear-gradient(90deg, #722ed1 0%, #9254de 100%);
+}
+
+.bar-fill.cyan {
+  background: linear-gradient(90deg, #13c2c2 0%, #36cfc9 100%);
+}
+
+.bar-fill.magenta {
+  background: linear-gradient(90deg, #eb2f96 0%, #f759ab 100%);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .bar-label {
+    min-width: 90px;
+    font-size: 12px;
+  }
+
+  .bar-fill {
+    height: 36px;
+    padding: 0 12px;
+  }
+
+  .bar-value {
+    font-size: 12px;
+  }
+}

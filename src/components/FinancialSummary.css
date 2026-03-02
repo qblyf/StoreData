@@ -1,0 +1,199 @@
+/**
+ * Financial Summary Grid Styles
+ * 7 columns x 5 rows strict grid layout
+ */
+
+.financial-summary-grid {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 32px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(5, auto);
+  gap: 16px;
+  align-items: center;
+  justify-items: center;
+}
+
+/* Grid Cells */
+.grid-cell {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cell-data {
+  background: white;
+  border-radius: 12px;
+  padding: 16px 20px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 120px;
+  width: 100%;
+  max-width: 160px;
+}
+
+.cell-data:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.cell-empty {
+  background: transparent;
+  min-height: 40px;
+}
+
+.cell-operator {
+  font-size: 32px;
+  font-weight: 700;
+  color: #667eea;
+  text-align: center;
+  min-height: 40px;
+}
+
+/* Cell Content */
+.cell-label {
+  font-size: 13px;
+  color: #8c8c8c;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.cell-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 2px;
+}
+
+.cell-value.highlight {
+  color: #52c41a;
+  font-size: 26px;
+}
+
+.cell-unit {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 4px;
+}
+
+.cell-target {
+  font-size: 11px;
+  color: #666;
+  margin-top: 4px;
+}
+
+.cell-percentage {
+  font-size: 13px;
+  color: #1890ff;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+/* Color coding for different cell types */
+.revenue-cell {
+  border-top: 4px solid #1890ff;
+}
+
+.cost-cell {
+  border-top: 4px solid #ff4d4f;
+}
+
+.gross-profit-cell {
+  border-top: 4px solid #52c41a;
+  background: linear-gradient(to bottom, #f6ffed 0%, white 100%);
+}
+
+.expense-cell {
+  border-top: 4px solid #fa8c16;
+}
+
+.total-expense-cell {
+  border-top: 4px solid #fa8c16;
+  background: linear-gradient(to bottom, #fff7e6 0%, white 100%);
+}
+
+.profit-cell {
+  border-top: 4px solid #52c41a;
+  background: linear-gradient(to bottom, #f6ffed 0%, white 100%);
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+  .financial-summary-grid {
+    padding: 24px;
+    gap: 12px;
+  }
+
+  .cell-data {
+    padding: 14px 16px;
+    min-height: 110px;
+    max-width: 140px;
+  }
+
+  .cell-value {
+    font-size: 22px;
+  }
+
+  .cell-value.highlight {
+    font-size: 24px;
+  }
+
+  .cell-operator {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 900px) {
+  .financial-summary-grid {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .grid-cell {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .cell-data {
+    max-width: 100%;
+  }
+
+  .cell-operator {
+    font-size: 24px;
+    min-height: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .financial-summary-grid {
+    padding: 16px;
+  }
+
+  .cell-data {
+    padding: 12px;
+    min-height: 100px;
+  }
+
+  .cell-value {
+    font-size: 20px;
+  }
+
+  .cell-value.highlight {
+    font-size: 22px;
+  }
+
+  .cell-label {
+    font-size: 12px;
+  }
+}

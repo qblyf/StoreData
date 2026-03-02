@@ -1,0 +1,1471 @@
+/**
+ * Employee Performance Table Styles
+ */
+
+.employee-performance-table-container {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.table-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.table-summary {
+  display: flex;
+  gap: 24px;
+}
+
+.summary-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.summary-label {
+  font-size: 14px;
+  color: #666;
+}
+
+.summary-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.summary-value.highlight {
+  color: #52c41a;
+  font-size: 18px;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid #e8e8e8;
+}
+
+.employee-performance-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  min-width: 1200px;
+}
+
+.employee-performance-table thead {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.employee-performance-table th {
+  padding: 14px 12px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 13px;
+  white-space: nowrap;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.employee-performance-table th:last-child {
+  border-right: none;
+}
+
+.employee-performance-table tbody tr {
+  border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.2s ease;
+}
+
+.employee-performance-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.employee-performance-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.employee-performance-table td {
+  padding: 12px;
+  color: #1a1a1a;
+  border-right: 1px solid #f0f0f0;
+}
+
+.employee-performance-table td:last-child {
+  border-right: none;
+}
+
+.employee-performance-table tfoot {
+  background: #f8f9fa;
+  font-weight: 700;
+  border-top: 2px solid #e8e8e8;
+}
+
+.employee-performance-table tfoot td {
+  padding: 14px 12px;
+  color: #1a1a1a;
+}
+
+/* Column specific styles */
+.col-name {
+  text-align: left;
+  font-weight: 600;
+  min-width: 100px;
+}
+
+.col-position {
+  text-align: center;
+  min-width: 100px;
+  color: #666;
+}
+
+.col-currency {
+  text-align: right;
+  font-family: 'Courier New', monospace;
+  min-width: 100px;
+}
+
+.col-score {
+  text-align: center;
+  font-weight: 600;
+  min-width: 80px;
+  color: #fa8c16;
+}
+
+.highlight-col {
+  background-color: #f6ffed;
+  font-weight: 600;
+  color: #52c41a;
+}
+
+.total-row {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.total-row .col-name {
+  color: #667eea;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .employee-performance-table-container {
+    padding: 20px;
+  }
+
+  .table-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .table-summary {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 768px) {
+  .employee-performance-table-container {
+    padding: 16px;
+    border-radius: 8px;
+  }
+
+  .table-title {
+    font-size: 18px;
+  }
+
+  .table-summary {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .summary-value {
+    font-size: 15px;
+  }
+
+  .summary-value.highlight {
+    font-size: 16px;
+  }
+
+  .employee-performance-table {
+    font-size: 13px;
+  }
+
+  .employee-performance-table th,
+  .employee-performance-table td {
+    padding: 10px 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .employee-performance-table-container {
+    padding: 12px;
+  }
+
+  .table-title {
+    font-size: 16px;
+  }
+
+  .employee-performance-table {
+    font-size: 12px;
+  }
+
+  .employee-performance-table th,
+  .employee-performance-table td {
+    padding: 8px 6px;
+  }
+}
+
+/* Position cell simplified */
+.position-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.position-text {
+  flex-shrink: 0;
+}
+
+.leadership-badge {
+  font-size: 16px;
+  line-height: 1;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Authorization sub-row - always visible */
+.auth-sub-row {
+  background: #fafafa;
+  border-top: none !important;
+  border-bottom: 1px solid #e8e8e8 !important;
+}
+
+.auth-sub-row td {
+  padding: 8px 12px !important;
+}
+
+.auth-inline {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+}
+
+.auth-inline-label {
+  font-weight: 600;
+  color: #666;
+  white-space: nowrap;
+}
+
+.auth-inline-items {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.auth-inline-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.auth-inline-name {
+  font-size: 11px;
+  color: #999;
+  font-weight: 500;
+}
+
+.auth-inline-level {
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.auth-inline-level.auth-high {
+  color: #52c41a;
+}
+
+.auth-inline-level.auth-medium {
+  color: #fa8c16;
+}
+
+.auth-inline-level.auth-low {
+  color: #d9d9d9;
+}
+
+/* Authorization details row */
+.auth-details-row {
+  background: #f8f9fa;
+  border-top: none !important;
+}
+
+.auth-details-row td {
+  padding: 20px !important;
+  border-bottom: 2px solid #e8e8e8 !important;
+}
+
+.auth-details {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.auth-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 16px 0;
+  text-align: center;
+}
+
+.auth-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+.auth-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e8e8e8;
+  transition: all 0.3s ease;
+}
+
+.auth-item:hover {
+  border-color: #667eea;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.15);
+  transform: translateY(-2px);
+}
+
+.auth-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #666;
+  white-space: nowrap;
+}
+
+.auth-level {
+  font-size: 16px;
+  letter-spacing: 2px;
+  line-height: 1;
+}
+
+.auth-level.auth-high {
+  color: #52c41a;
+}
+
+.auth-level.auth-medium {
+  color: #fa8c16;
+}
+
+.auth-level.auth-low {
+  color: #d9d9d9;
+}
+
+.auth-level-num {
+  font-size: 11px;
+  font-weight: 700;
+  color: #999;
+  background: #f0f0f0;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+/* Responsive design for auth details */
+@media (max-width: 1024px) {
+  .auth-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .position-cell {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .leadership-badge {
+    font-size: 14px;
+  }
+
+  .auth-toggle-btn {
+    font-size: 10px;
+  }
+
+  .auth-details-row td {
+    padding: 16px !important;
+  }
+
+  .auth-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .auth-item {
+    padding: 10px;
+  }
+
+  .auth-label {
+    font-size: 11px;
+  }
+
+  .auth-level {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .auth-item {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 8px 12px;
+  }
+
+  .auth-level {
+    font-size: 12px;
+  }
+}
+
+/* Name cell with avatar, education and years */
+.name-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.name-avatar {
+  font-size: 32px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.name-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.name-text {
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.name-details {
+  display: flex;
+  gap: 6px;
+}
+
+.detail-badge {
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.detail-badge.education {
+  background: #e6f7ff;
+  color: #1890ff;
+}
+
+.detail-badge.years {
+  background: #f6ffed;
+  color: #52c41a;
+}
+
+/* Salary cell with toggle and output */
+/* Salary cell with click tooltip */
+.salary-cell-click {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.salary-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.salary-total {
+  font-weight: 600;
+}
+
+.salary-output {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.salary-output.good {
+  background: #f6ffed;
+  color: #52c41a;
+}
+
+.salary-output.normal {
+  background: #fff7e6;
+  color: #fa8c16;
+}
+
+.salary-output.poor {
+  background: #fff1f0;
+  color: #ff4d4f;
+}
+
+/* Salary tooltip */
+.salary-tooltip {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  width: 280px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  animation: tooltipFadeIn 0.2s ease;
+}
+
+@keyframes tooltipFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.salary-tooltip::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  right: 20px;
+  width: 12px;
+  height: 12px;
+  background: white;
+  transform: rotate(45deg);
+  box-shadow: -2px -2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.salary-tooltip-header {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 8px 8px 0 0;
+}
+
+.salary-tooltip-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+}
+
+.salary-tooltip-content {
+  padding: 12px 16px;
+}
+
+.salary-tooltip-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.salary-tooltip-item:last-child {
+  border-bottom: none;
+}
+
+.salary-tooltip-label {
+  font-size: 12px;
+  color: #666;
+  font-weight: 500;
+}
+
+.salary-tooltip-value-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.salary-tooltip-value {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1a1a1a;
+  font-family: 'Courier New', monospace;
+}
+
+.salary-tooltip-percent {
+  font-size: 11px;
+  color: #999;
+  background: #f0f0f0;
+  padding: 2px 6px;
+  border-radius: 10px;
+}
+
+.salary-tooltip-footer {
+  padding: 10px 16px;
+  background: #f8f9fa;
+  border-radius: 0 0 8px 8px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.salary-tooltip-formula {
+  font-size: 11px;
+  color: #666;
+  line-height: 1.4;
+  display: block;
+}
+
+/* Responsive design for salary tooltip */
+@media (max-width: 768px) {
+  .salary-tooltip {
+    width: 240px;
+    right: -20px;
+  }
+
+  .salary-tooltip::before {
+    right: 30px;
+  }
+
+  .salary-tooltip-header {
+    padding: 10px 12px;
+  }
+
+  .salary-tooltip-title {
+    font-size: 12px;
+  }
+
+  .salary-tooltip-content {
+    padding: 10px 12px;
+  }
+
+  .salary-tooltip-item {
+    padding: 6px 0;
+  }
+
+  .salary-tooltip-label {
+    font-size: 11px;
+  }
+
+  .salary-tooltip-value {
+    font-size: 12px;
+  }
+
+  .salary-tooltip-footer {
+    padding: 8px 12px;
+  }
+
+  .salary-tooltip-formula {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .salary-tooltip {
+    width: 200px;
+    right: -40px;
+  }
+}
+
+/* Business cell with ratio and sales */
+.business-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.business-profit {
+  font-weight: 600;
+  font-family: 'Courier New', monospace;
+}
+
+.business-details {
+  display: flex;
+  gap: 6px;
+  font-size: 10px;
+}
+
+.business-ratio {
+  background: #e6f7ff;
+  color: #1890ff;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-weight: 500;
+}
+
+.business-sales {
+  background: #f6ffed;
+  color: #52c41a;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-weight: 500;
+}
+
+/* Responsive design for business cells */
+@media (max-width: 768px) {
+  .business-cell {
+    gap: 3px;
+  }
+
+  .business-profit {
+    font-size: 13px;
+  }
+
+  .business-details {
+    gap: 4px;
+    font-size: 9px;
+  }
+
+  .business-ratio,
+  .business-sales {
+    padding: 1px 3px;
+  }
+}
+
+@media (max-width: 480px) {
+  .business-details {
+    flex-direction: column;
+    gap: 2px;
+  }
+}
+
+/* Responsive design for auth sub-row */
+@media (max-width: 1024px) {
+  .auth-inline {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .auth-inline-items {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .auth-sub-row td {
+    padding: 6px 8px !important;
+  }
+
+  .auth-inline {
+    font-size: 11px;
+    gap: 6px;
+  }
+
+  .auth-inline-items {
+    gap: 10px;
+  }
+
+  .auth-inline-item {
+    gap: 4px;
+  }
+
+  .auth-inline-name {
+    font-size: 10px;
+  }
+
+  .auth-inline-level {
+    font-size: 12px;
+  }
+
+  .position-cell {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .leadership-badge {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-inline-items {
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+  }
+
+  .auth-inline-item {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+/* Member cell with click tooltip */
+.member-cell-click {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  cursor: pointer;
+}
+
+/* Member tooltip */
+.member-tooltip {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  width: 300px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  animation: tooltipFadeIn 0.2s ease;
+}
+
+.member-tooltip::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  right: 20px;
+  width: 12px;
+  height: 12px;
+  background: white;
+  transform: rotate(45deg);
+  box-shadow: -2px -2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.member-tooltip-header {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%);
+  border-radius: 8px 8px 0 0;
+}
+
+.member-tooltip-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+}
+
+.member-tooltip-content {
+  padding: 12px 16px;
+}
+
+.member-tooltip-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 0;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.member-tooltip-item:last-child {
+  border-bottom: none;
+}
+
+.member-tooltip-label {
+  font-size: 12px;
+  color: #666;
+  font-weight: 600;
+}
+
+.member-tooltip-value-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.member-tooltip-value {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1a1a;
+  font-family: 'Courier New', monospace;
+}
+
+.member-tooltip-detail {
+  font-size: 11px;
+  color: #999;
+  line-height: 1.4;
+}
+
+/* Responsive design for member tooltip */
+@media (max-width: 768px) {
+  .member-tooltip {
+    width: 260px;
+    right: -20px;
+  }
+
+  .member-tooltip::before {
+    right: 30px;
+  }
+
+  .member-tooltip-header {
+    padding: 10px 12px;
+  }
+
+  .member-tooltip-title {
+    font-size: 12px;
+  }
+
+  .member-tooltip-content {
+    padding: 10px 12px;
+  }
+
+  .member-tooltip-item {
+    padding: 8px 0;
+  }
+
+  .member-tooltip-label {
+    font-size: 11px;
+  }
+
+  .member-tooltip-value {
+    font-size: 13px;
+  }
+
+  .member-tooltip-detail {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .member-tooltip {
+    width: 220px;
+    right: -40px;
+  }
+}
+
+/* Values cell with click tooltip */
+.values-cell-click {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.values-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.values-score {
+  font-weight: 700;
+  font-size: 16px;
+  color: #fa8c16;
+}
+
+.values-badges {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.medal-count {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  color: #8b4513;
+}
+
+.course-count {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #1890ff 0%, #40a9ff 100%);
+  color: white;
+}
+
+/* Values tooltip (combined medals and courses) */
+.values-tooltip {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  width: 340px;
+  max-height: 500px;
+  overflow-y: auto;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  animation: tooltipFadeIn 0.2s ease;
+}
+
+.values-tooltip::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  right: 20px;
+  width: 12px;
+  height: 12px;
+  background: white;
+  transform: rotate(45deg);
+  box-shadow: -2px -2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.values-tooltip-header {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.values-tooltip-header.medals-header {
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  border-radius: 8px 8px 0 0;
+}
+
+.values-tooltip-header.courses-header {
+  background: linear-gradient(135deg, #1890ff 0%, #40a9ff 100%);
+}
+
+.values-tooltip-title {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0;
+  text-align: center;
+}
+
+.medals-header .values-tooltip-title {
+  color: #8b4513;
+}
+
+.courses-header .values-tooltip-title {
+  color: white;
+}
+
+.values-tooltip-content {
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.medal-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 2px solid #f0f0f0;
+  background: #fafafa;
+  transition: all 0.3s ease;
+}
+
+.medal-item:hover {
+  transform: translateX(4px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.medal-item.medal-platinum {
+  border-color: #e0e0e0;
+  background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+}
+
+.medal-item.medal-gold {
+  border-color: #ffd700;
+  background: linear-gradient(135deg, #fffbea 0%, #fff4cc 100%);
+}
+
+.medal-item.medal-silver {
+  border-color: #c0c0c0;
+  background: linear-gradient(135deg, #f8f8f8 0%, #efefef 100%);
+}
+
+.medal-item.medal-bronze {
+  border-color: #cd7f32;
+  background: linear-gradient(135deg, #fff5e6 0%, #ffe6cc 100%);
+}
+
+.medal-icon {
+  font-size: 32px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.medal-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.medal-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.medal-description {
+  font-size: 11px;
+  color: #666;
+  line-height: 1.4;
+}
+
+.medal-date {
+  font-size: 10px;
+  color: #999;
+  margin-top: 2px;
+}
+
+/* Scrollbar styling for values tooltip */
+.values-tooltip::-webkit-scrollbar {
+  width: 6px;
+}
+
+.values-tooltip::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 0 8px 8px 0;
+}
+
+.values-tooltip::-webkit-scrollbar-thumb {
+  background: #d9d9d9;
+  border-radius: 3px;
+}
+
+.values-tooltip::-webkit-scrollbar-thumb:hover {
+  background: #bfbfbf;
+}
+
+/* Training course items */
+.course-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 2px solid #e8e8e8;
+  background: #fafafa;
+  transition: all 0.3s ease;
+}
+
+.course-item:hover {
+  transform: translateX(4px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.course-item.course-passed {
+  border-color: #52c41a;
+  background: linear-gradient(135deg, #f6ffed 0%, #d9f7be 100%);
+}
+
+.course-item.course-completed {
+  border-color: #1890ff;
+  background: linear-gradient(135deg, #e6f7ff 0%, #bae7ff 100%);
+}
+
+.course-item.course-in-progress {
+  border-color: #fa8c16;
+  background: linear-gradient(135deg, #fff7e6 0%, #ffd591 100%);
+}
+
+.course-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.course-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1a1a1a;
+  flex: 1;
+}
+
+.course-status {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+
+.course-status.status-passed {
+  background: #52c41a;
+  color: white;
+}
+
+.course-status.status-completed {
+  background: #1890ff;
+  color: white;
+}
+
+.course-status.status-in-progress {
+  background: #fa8c16;
+  color: white;
+}
+
+.course-details {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.course-category,
+.course-duration,
+.course-score {
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: white;
+  color: #666;
+  font-weight: 500;
+}
+
+.course-score {
+  background: #fff7e6;
+  color: #fa8c16;
+  font-weight: 700;
+}
+
+.course-date {
+  font-size: 10px;
+  color: #999;
+}
+
+/* Responsive design for values tooltip */
+@media (max-width: 768px) {
+  .values-tooltip {
+    width: 300px;
+    max-height: 450px;
+    right: -20px;
+  }
+
+  .values-tooltip::before {
+    right: 30px;
+  }
+
+  .values-tooltip-header {
+    padding: 10px 12px;
+  }
+
+  .values-tooltip-title {
+    font-size: 13px;
+  }
+
+  .values-tooltip-content {
+    padding: 10px 12px;
+    gap: 8px;
+  }
+
+  .medal-item,
+  .course-item {
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .medal-icon {
+    font-size: 28px;
+  }
+
+  .medal-name,
+  .course-name {
+    font-size: 12px;
+  }
+
+  .medal-description {
+    font-size: 10px;
+  }
+
+  .medal-date,
+  .course-date {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 480px) {
+  .values-tooltip {
+    width: 260px;
+    max-height: 400px;
+    right: -40px;
+  }
+
+  .medal-item,
+  .course-item {
+    padding: 8px;
+    gap: 6px;
+  }
+
+  .medal-icon {
+    font-size: 24px;
+  }
+
+  .course-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Scrollbar styling for medals tooltip (legacy) */
+.medals-tooltip::-webkit-scrollbar {
+  width: 6px;
+}
+
+.medals-tooltip::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 0 8px 8px 0;
+}
+
+.medals-tooltip::-webkit-scrollbar-thumb {
+  background: #d9d9d9;
+  border-radius: 3px;
+}
+
+.medals-tooltip::-webkit-scrollbar-thumb:hover {
+  background: #bfbfbf;
+}
+
+/* Responsive design for medals tooltip */
+@media (max-width: 768px) {
+  .medals-tooltip {
+    width: 280px;
+    max-height: 350px;
+    right: -20px;
+  }
+
+  .medals-tooltip::before {
+    right: 30px;
+  }
+
+  .medals-tooltip-header {
+    padding: 10px 12px;
+  }
+
+  .medals-tooltip-title {
+    font-size: 13px;
+  }
+
+  .medals-tooltip-content {
+    padding: 10px 12px;
+    gap: 8px;
+  }
+
+  .medal-item {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .medal-icon {
+    font-size: 28px;
+  }
+
+  .medal-name {
+    font-size: 12px;
+  }
+
+  .medal-description {
+    font-size: 10px;
+  }
+
+  .medal-date {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 480px) {
+  .medals-tooltip {
+    width: 240px;
+    max-height: 300px;
+    right: -40px;
+  }
+
+  .medal-item {
+    padding: 8px;
+    gap: 8px;
+  }
+
+  .medal-icon {
+    font-size: 24px;
+  }
+}
+
+/* Overall score cell */
+.overall-score-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.overall-score {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.overall-score.score-excellent {
+  color: #52c41a;
+}
+
+.overall-score.score-good {
+  color: #1890ff;
+}
+
+.overall-score.score-average {
+  color: #fa8c16;
+}
+
+.overall-score.score-poor {
+  color: #ff4d4f;
+}
+
+.overall-score-label {
+  font-size: 10px;
+  color: #999;
+  font-weight: 500;
+}
+
+/* Responsive design for overall score */
+@media (max-width: 768px) {
+  .overall-score {
+    font-size: 18px;
+  }
+
+  .overall-score-label {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 480px) {
+  .overall-score {
+    font-size: 16px;
+  }
+}

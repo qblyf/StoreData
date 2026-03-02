@@ -1,0 +1,232 @@
+.kpi-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.kpi-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.kpi-card.unmet-target {
+  border-color: #ff4d4f;
+  background: #fff1f0;
+}
+
+.kpi-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.kpi-card-badges {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.kpi-card-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+  margin: 0;
+}
+
+.warning-badge {
+  background: #ff4d4f;
+  color: white;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.alert-icon-button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px;
+  line-height: 1;
+  transition: transform 0.2s;
+}
+
+.alert-icon-button:hover {
+  transform: scale(1.2);
+}
+
+.alert-icon-button.critical {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.kpi-card-value {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.kpi-card-value .value {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1;
+}
+
+.kpi-card-value .unit {
+  font-size: 16px;
+  color: #999;
+  font-weight: 400;
+}
+
+.kpi-card-target {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.kpi-card-target .target-label {
+  color: #999;
+}
+
+.kpi-card-target .target-value {
+  color: #666;
+  font-weight: 500;
+}
+
+.kpi-card-completion {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.completion-bar {
+  flex: 1;
+  height: 8px;
+  background: #f0f0f0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.completion-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ffa940 0%, #fa8c16 100%);
+  transition: width 0.3s ease;
+  border-radius: 4px;
+}
+
+.completion-fill.complete {
+  background: linear-gradient(90deg, #52c41a 0%, #389e0d 100%);
+}
+
+.completion-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: #666;
+  min-width: 45px;
+  text-align: right;
+}
+
+.kpi-card-change {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  width: fit-content;
+}
+
+.kpi-card-change.positive {
+  background: #f6ffed;
+  color: #52c41a;
+}
+
+.kpi-card-change.negative {
+  background: #fff1f0;
+  color: #ff4d4f;
+}
+
+.kpi-card-change .change-icon {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.kpi-card-change .change-value {
+  font-weight: 600;
+}
+
+.kpi-card-change .change-label {
+  color: #999;
+  margin-left: 2px;
+}
+
+/* Formula */
+.kpi-card-formula {
+  margin-top: 12px;
+  padding: 8px 12px;
+  background: #f0f5ff;
+  border-left: 3px solid #1890ff;
+  border-radius: 4px;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.formula-label {
+  font-weight: 600;
+  color: #1890ff;
+}
+
+.formula-text {
+  color: #262626;
+  font-family: 'Courier New', monospace;
+}
+
+/* Assessment Criteria */
+.kpi-card-criteria {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #666;
+}
+
+.criteria-label {
+  font-weight: 600;
+  color: #8c8c8c;
+}
+
+.criteria-text {
+  color: #595959;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .kpi-card {
+    padding: 16px;
+  }
+
+  .kpi-card-value .value {
+    font-size: 28px;
+  }
+
+  .kpi-card-value .unit {
+    font-size: 14px;
+  }
+}

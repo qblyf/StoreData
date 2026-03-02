@@ -1,0 +1,134 @@
+/**
+ * TrendLineChart Component Styles
+ */
+
+.trend-line-chart {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.chart-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #262626;
+}
+
+/* Granularity Selector */
+.granularity-selector {
+  display: flex;
+  gap: 8px;
+}
+
+.granularity-btn {
+  padding: 6px 16px;
+  border: 1px solid #d9d9d9;
+  background: white;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #595959;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.granularity-btn:hover {
+  color: #1890ff;
+  border-color: #1890ff;
+}
+
+.granularity-btn.active {
+  color: white;
+  background: #1890ff;
+  border-color: #1890ff;
+}
+
+.granularity-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+/* Custom Tooltip */
+.trend-chart-tooltip {
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  padding: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.tooltip-label {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #262626;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 6px;
+}
+
+.tooltip-item {
+  margin: 4px 0;
+  font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.tooltip-name {
+  color: #595959;
+}
+
+.tooltip-value {
+  font-weight: 600;
+  color: #262626;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .trend-line-chart {
+    padding: 16px;
+  }
+
+  .chart-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .chart-title {
+    font-size: 16px;
+  }
+
+  .granularity-selector {
+    width: 100%;
+  }
+
+  .granularity-btn {
+    flex: 1;
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .trend-line-chart {
+    padding: 12px;
+  }
+
+  .chart-title {
+    font-size: 15px;
+  }
+
+  .granularity-btn {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+}
